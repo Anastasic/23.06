@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+namespace mmmm 
+{
+public class Uchenik
+{
+   public string name { get; set; }
+   private int matemat { get; set; }
+   private int russian { get; set; }
+
+   public Uchenik(string name, int matemat, int russian)
+   {
+     this.name = name;
+     this.matemat = matemat;
+     this.russian = russian;
+   }
+   public virtual void Move() //объявление виртуального метода
+   {
+     Console.WriteLine("Имя Ученика: " + name +"\n" + "Оценка по математике: " + matemat + "\n" + "Оценка по русскому: " + russian + "\n");
+   }
+}
+
+class Program
+{
+   static void Main(string[] args)
+   {
+     List<Uchenik> ucheniks = new List<Uchenik>();
+     ucheniks.Add(new Uchenik(Console.ReadLine(), 4, 5));
+     ucheniks.Add(new Uchenik(Console.ReadLine(), 5, 5));
+     ucheniks.Add(new Uchenik(Console.ReadLine(), 4, 4));
+
+     foreach (Uchenik p in ucheniks)
+       p.Move();
+
+     Console.ReadKey();
+   }
+}
+}

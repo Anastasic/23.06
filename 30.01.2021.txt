@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+namespace mmmm 
+{
+public class GameObject
+{
+   private string name { get; set; }
+   private int koordinati { get; set; }
+
+   public GameObject(string name, int koordinati)
+   {
+     this.name = name;
+     this.koordinati = koordinati;
+   }
+   public virtual void Move() //объявление виртуального метода
+   {
+     Console.WriteLine("Имя объекта: " + name +"\n" + "Координаты " + koordinati + "\n");
+   }
+}
+
+class Program
+{
+   static void Main(string[] args)
+   {
+     List<GameObject> games = new List<GameObject>();
+     games.Add(new GameObject("Слон ", 12));
+     games.Add(new GameObject("Волк ", 5));
+     games.Add(new GameObject("Кенгуру ", 10));
+
+     foreach (GameObject p in games)
+       p.Move();
+
+     Console.ReadKey();
+   }
+}
+}

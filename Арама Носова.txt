@@ -1,0 +1,64 @@
+using System;
+using System.Collections.Generic;
+namespace mmmm 
+{
+class Voin
+{
+   public string Name { get; set; }
+   public int Kolichestvo { get; set; }
+
+   public Voin(string name, int kolichestvo)
+   {
+     Name = name;
+     Kolichestvo = kolichestvo;
+   }
+   public virtual void Uron() //объявление виртуального метода
+   {
+     Console.WriteLine("Воин\nИмя: " + Name +"\n" + "Количество жизней " + Kolichestvo + "\n");
+   }
+}
+class Voin1 : Voin
+{
+   public string Dospehi { get; set; }
+
+   public Voin1(string name, int kolichestvo, string dospehi)
+: base(name, kolichestvo)
+   {
+     Dospehi = dospehi;
+   }
+   public override void Uron() // переопределение метода
+   {
+     Console.WriteLine("Воин в легких доспехах\nИмя: " + Name + "\n" + "Количество жизней: " + Kolichestvo + "\n" + "Уровень урона: " + Dospehi + "\n");
+   }
+}
+class Voin2 : Voin
+{
+   public string Lovkost { get; set; }
+
+   public Voin2(string name, int kolichestvo, string lovkost)
+: base(name, kolichestvo)
+   {
+     Lovkost = lovkost;
+   }
+   public override void Uron() // переопределение метода
+   {
+     Console.WriteLine("Воин в тяжёлых доспехах\nИмя: " + Name + "\n" + "Количество жизней: " + Kolichestvo + "\n" + "Уровень урона: " + Lovkost + "\n");
+   }
+}
+
+class Program
+{
+   static void Main(string[] args)
+   {
+     List<Voin> voins = new List<Voin>();
+     voins.Add(new Voin("Василий", 100));
+     voins.Add(new Voin1("Андрей", 100, "Уровень урона: 50"));
+     voins.Add(new Voin2("Елена", 100, "Уровень урона: 25"));
+
+     foreach (Voin p in voins)
+       p.Uron();
+
+     Console.ReadKey();
+   }
+}
+}

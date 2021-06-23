@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+namespace mmmm 
+{
+class Voin
+{
+   public string Name { get; set; }
+   public int Zdorovie { get; set; }
+
+   public Voin(string name, int zdorovie)
+   {
+     Name = name;
+     Zdorovie = zdorovie;
+   }
+   public virtual void Uron() //объявление виртуального метода
+   {
+     Console.WriteLine("Воин\nИмя: " + Name +"\n" + "Количество жизней " + Zdorovie + "\n");
+   }
+}
+class Voin1 : Voin
+{
+   public Voin1(string name, int zdorovie)
+: base(name, zdorovie)
+{
+    Name = name;
+    Zdorovie = zdorovie;
+}
+   public override void Uron() // переопределение метода
+   {
+     Console.WriteLine("Воин 1\nИмя: " + Name + "\n" + "Количество жизней: " + Zdorovie + "\n");
+   }
+}
+
+class Udar
+{
+    int a = Rand.next(1, 3);
+    int b = Rand.next(1, 3);
+    public override void Uron() // переопределение метода
+   {
+       if (a != b)
+       {
+           zdorovie = 
+       }
+     Console.WriteLine();
+   }
+}
+
+class Program
+{
+   static void Main(string[] args)
+   {
+     List<Voin> voins = new List<Voin>();
+     voins.Add(new Voin("Василий", 100));
+     voins.Add(new Voin1("Андрей", 100));
+     voins.Add(new Voin2("Елена", 100));
+
+     foreach (Voin p in voins)
+       p.Uron();
+     Udar.Udark();
+     Console.ReadKey();
+   }
+}
+}

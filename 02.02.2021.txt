@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+namespace _02._02._2021
+{
+    public class Okruzhnost
+    {
+        public int Sentr { get; set; }
+        public int Radius { get; set; }
+
+        public Okruzhnost(int sentr, int radius)
+        {
+            Sentr = sentr;
+            Radius = radius;
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+            Okruzhnost da = obj as Okruzhnost; // возвращает null если объект нельзя привести к типу Money
+            if (da as Okruzhnost == null)
+                return false;
+
+            return da.Sentr == this.Sentr && da.Radius == this.Radius;
+        }
+        public override int GetHashCode()
+        {
+
+            int unitCode;
+            if (Radius == 50)
+                unitCode = 1;
+            else unitCode = 2;
+            return (int)Sentr + unitCode;
+        }
+
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //List<Okruzhnost> games = new List<Okruzhnost>();
+            Console.WriteLine("Метод Equals и ==");
+            Okruzhnost da1 = new Okruzhnost(100, 50);
+            Okruzhnost da2 = new Okruzhnost(100, 25);
+            Okruzhnost da3 = new Okruzhnost(100, 10);
+            Okruzhnost da4 = da1;
+            Console.WriteLine(da1.Equals(da2));
+            Console.WriteLine(da1.Equals(da3));
+            Console.WriteLine(da1 == da2);
+            Console.WriteLine(da1 == da4);
+            Console.WriteLine("Метод GetHashCode");
+            Console.WriteLine(da1.GetHashCode());
+            Console.WriteLine(da2.GetHashCode());
+            Console.WriteLine(da3.GetHashCode());
+            Console.ReadLine();
+        }
+    }
+}
